@@ -179,6 +179,12 @@ export const CalculatorSection = forwardRef<HTMLElement>((_, ref) => {
       economiaTotal = economiaParcela * numParcelas;
     }
 
+    if (isAbusive) {
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Lead');
+      }
+    }
+
     setResult({
       isAbusive,
       taxaPraticada,

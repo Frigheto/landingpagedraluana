@@ -8,6 +8,11 @@ export function FloatingWhatsApp() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => {
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track', 'Contact');
+        }
+      }}
       className="fixed bottom-8 right-8 z-50 group"
       aria-label="Falar no WhatsApp"
     >
